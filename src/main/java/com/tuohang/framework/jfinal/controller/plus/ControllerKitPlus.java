@@ -228,13 +228,13 @@ public abstract class ControllerKitPlus<M extends ModelPlus<M>> extends Controll
 		else
 			brJson.setType(type);
 		if (brJson.getType().equals(ResultType.SUCCESS)) {
-			brJson.setStateCode(200);
+			brJson.setStateCode(STATECODE.SUCCESS);
 			brJson.setPromptInfo("操作成功");
 		} else if (brJson.getType().equals(ResultType.FAIL)) {
-			brJson.setStateCode(404);
+			brJson.setStateCode(STATECODE.ERROR);
 			brJson.setPromptInfo("操作失败");
 		} else {
-			brJson.setStateCode(302);
+			brJson.setStateCode(STATECODE.WARN);
 			brJson.setPromptInfo("警告");
 		}
 		return brJson;
