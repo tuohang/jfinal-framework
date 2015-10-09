@@ -21,7 +21,6 @@ public @interface ControllerBind {
 	/**
 	 * 表示ControllerKey
 	 * 
-	 * @return
 	 */
 	String value();
 

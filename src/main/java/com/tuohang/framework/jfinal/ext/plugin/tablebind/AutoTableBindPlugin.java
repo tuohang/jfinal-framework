@@ -129,7 +129,7 @@ public class AutoTableBindPlugin extends ActiveRecordPlugin {
 	 * 添加需要扫描的包，默认为扫描所有包
 	 * 
 	 * @param packages
-	 * @return
+	 * @return AutoTableBindPlugin
 	 */
 	public AutoTableBindPlugin addScanPackages(String... packages) {
 		for (String pkg : packages) {

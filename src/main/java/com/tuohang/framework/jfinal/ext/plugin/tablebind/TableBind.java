@@ -20,15 +20,11 @@ import java.lang.annotation.Target;
 public @interface TableBind {
 	/**
 	 * 对应的数据库表名：tableName
-	 * 
-	 * @return
 	 */
 	String value() default "";
 
 	/**
 	 * 主键名
-	 * 
-	 * @return
 	 */
 	String pkName() default "";
 

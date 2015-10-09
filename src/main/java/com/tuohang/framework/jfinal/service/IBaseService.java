@@ -23,7 +23,7 @@ public interface IBaseService<M extends Model<M>> {
 	 * 添加
 	 * 
 	 * @param model
-	 * @return
+	 * @return boolean：是否成功
 	 */
 	public boolean save(M model);
 
@@ -31,7 +31,7 @@ public interface IBaseService<M extends Model<M>> {
 	 * 修改
 	 * 
 	 * @param model
-	 * @return
+	 * @return boolean：是否成功
 	 */
 	public boolean update(M model);
 
@@ -39,7 +39,7 @@ public interface IBaseService<M extends Model<M>> {
 	 * 添加或修改
 	 * 
 	 * @param model
-	 * @return
+	 * @return boolean：是否成功
 	 */
 	public boolean saveOrUpdate(M model);
 
@@ -47,7 +47,7 @@ public interface IBaseService<M extends Model<M>> {
 	 * 单个删除
 	 * 
 	 * @param id
-	 * @return
+	 * @return boolean：是否成功
 	 */
 	public boolean delete(String id);
 
@@ -55,7 +55,7 @@ public interface IBaseService<M extends Model<M>> {
 	 * 根据id查询
 	 * 
 	 * @param id
-	 * @return
+	 * @return M
 	 */
 	public M findById(String id);
 
@@ -64,7 +64,7 @@ public interface IBaseService<M extends Model<M>> {
 	 * 
 	 * @param condition
 	 *            查询条件
-	 * @return
+	 * @return List<M>
 	 */
 	public List<M> findByParam(QueryCondition condition);
 
@@ -75,7 +75,7 @@ public interface IBaseService<M extends Model<M>> {
 	 *            查询条件
 	 * @param paging
 	 *            分页条件
-	 * @return
+	 * @return List<M>
 	 */
 	public List<M> findByParam(QueryCondition condition, Paging paging);
 
@@ -86,7 +86,7 @@ public interface IBaseService<M extends Model<M>> {
 	 *            查询条件
 	 * @param sort
 	 *            排序条件
-	 * @return
+	 * @return List<M>
 	 */
 	public List<M> findByParam(QueryCondition condition, Sort sort);
 
@@ -99,7 +99,7 @@ public interface IBaseService<M extends Model<M>> {
 	 *            分页条件
 	 * @param sort
 	 *            排序条件
-	 * @return
+	 * @return List<M>
 	 */
 	public List<M> findByParam(QueryCondition condition, Paging paging,
 			Sort sort);
@@ -109,7 +109,7 @@ public interface IBaseService<M extends Model<M>> {
 	 * 
 	 * @param paging
 	 *            分页条件
-	 * @return
+	 * @return Page<M>
 	 */
 	public Page<M> findByPage(Paging paging);
 
@@ -120,7 +120,7 @@ public interface IBaseService<M extends Model<M>> {
 	 *            分页条件
 	 * @param sort
 	 *            排序条件
-	 * @return
+	 * @return Page<M>
 	 */
 	public Page<M> findByPage(Paging paging, Sort sort);
 
@@ -129,14 +129,14 @@ public interface IBaseService<M extends Model<M>> {
 	 * 
 	 * @param sort
 	 *            排序条件
-	 * @return
+	 * @return List<M>
 	 */
 	public List<M> findAll(Sort sort);
 
 	/**
 	 * 查询所有（不排序）
 	 * 
-	 * @return
+	 * @return List<M>
 	 */
 	public List<M> findAll();
 }

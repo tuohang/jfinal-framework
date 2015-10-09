@@ -21,14 +21,21 @@ import com.tuohang.framework.jfinal.service.annotation.ServiceBind;
  * @date 2015年10月4日
  * @version 1.4
  * @param <M>
- *            ModelExt
+ *            ModelPlus 增强型model
  * @param <S>
- *            Service
+ *            继承IBaseService的接口
  */
 public abstract class ControllerKitPlusExt<M extends ModelPlus<M>, S extends IBaseService<M>>
 		extends ControllerKitPlus<M> {
 
+	/**
+	 * service
+	 */
 	protected S service;
+
+	/**
+	 * serviceClass
+	 */
 	private Class<S> serviceClass;
 
 	public Class<S> getServiceClass() {
@@ -37,14 +44,6 @@ public abstract class ControllerKitPlusExt<M extends ModelPlus<M>, S extends IBa
 
 	public void setServiceClass(Class<S> serviceClass) {
 		this.serviceClass = serviceClass;
-	}
-
-	public Class<M> getModelClass() {
-		return modelClass;
-	}
-
-	public void setModelClass(Class<M> modelClass) {
-		this.modelClass = modelClass;
 	}
 
 	/**

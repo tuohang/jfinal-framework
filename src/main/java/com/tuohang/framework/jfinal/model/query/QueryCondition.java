@@ -79,10 +79,8 @@ public class QueryCondition {
 	/***************************************************************************
 	 * 设置需要排除的字段 setexcludeField
 	 * 
-	 * @param 参数说明
-	 * @return 返回对象
-	 * @Exception 异常对象
-	 * 
+	 * @param filedName
+	 *            参数说明
 	 */
 	public void setExcludeField(String... filedName) {
 		if (!JFinalExtKit.isNullOrEmpty(filedName)) {
@@ -193,7 +191,7 @@ public class QueryCondition {
 	/***************************************************************************
 	 * 用于生成SQL条件语句不带别名
 	 * 
-	 * @param RecordClass
+	 * @param recordClass
 	 *            必须是一个Record类
 	 * @param alias
 	 *            别名
@@ -224,8 +222,6 @@ public class QueryCondition {
 	/***************************************************************************
 	 * 构建条件语句
 	 * 
-	 * @param resultMap
-	 *            用于返回结果的map
 	 * @param alias
 	 *            别名
 	 * @param fieldNames
@@ -326,7 +322,6 @@ public class QueryCondition {
 	 *            字段值
 	 * @param alias
 	 *            别名
-	 * @return
 	 */
 	@SuppressWarnings("rawtypes")
 	private void buildSQL(StringBuilder sb, String queryType, String fieldName,
@@ -401,10 +396,20 @@ public class QueryCondition {
 		}
 	}
 
+	/**
+	 * 获取sql语句
+	 * 
+	 * @return 封装好的sql语句
+	 */
 	public String getSql() {
 		return sql.get();
 	}
 
+	/**
+	 * 查询条件的值
+	 * 
+	 * @return List<Object> 查询条件的值
+	 */
 	public List<Object> getParamList() {
 		return paramList.get();
 	}

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * ZTree数据结构
+ * ZTree数据对象
  * 
  * @author Lims
  * @date 2015年10月7日

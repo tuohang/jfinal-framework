@@ -23,9 +23,19 @@ import com.tuohang.framework.jfinal.ext.plugin.tablebind.TableBind;
  */
 public abstract class ControllerKit<M extends Model<M>> extends Controller {
 
+	/**
+	 * 日志对象
+	 */
 	protected final Logger log = Logger.getLogger(getClass());
 
+	/**
+	 * model
+	 */
 	protected M model;
+
+	/**
+	 * modelClass
+	 */
 	protected Class<M> modelClass;
 
 	/**
@@ -92,7 +102,7 @@ public abstract class ControllerKit<M extends Model<M>> extends Controller {
 	 * 实例化model（这个方式无法获取到前台封装过来的model）
 	 * 
 	 * @param modelClass
-	 * @return
+	 * @return M
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
 	 */

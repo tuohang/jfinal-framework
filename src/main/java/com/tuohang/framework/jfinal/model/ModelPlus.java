@@ -27,8 +27,14 @@ public class ModelPlus<M extends ModelPlus<M>> extends Model<M> {
 
 	private static final long serialVersionUID = -1676245940397130983L;
 
+	/**
+	 * 日志对象
+	 */
 	public static Logger log = Logger.getLogger(ModelPlus.class);
 
+	/**
+	 * modelClass
+	 */
 	private Class<M> modelClass;
 
 	/**
@@ -99,7 +105,7 @@ public class ModelPlus<M extends ModelPlus<M>> extends Model<M> {
 	 * 添加
 	 * 
 	 * @param model
-	 * @return
+	 * @return boolean：是否成功
 	 */
 	public boolean save(M model) {
 		return model.save();
@@ -109,7 +115,7 @@ public class ModelPlus<M extends ModelPlus<M>> extends Model<M> {
 	 * 修改
 	 * 
 	 * @param model
-	 * @return
+	 * @return boolean：是否成功
 	 */
 	public boolean update(M model) {
 		return model.update();
@@ -119,7 +125,7 @@ public class ModelPlus<M extends ModelPlus<M>> extends Model<M> {
 	 * 添加或修改
 	 * 
 	 * @param model
-	 * @return
+	 * @return boolean：是否成功
 	 */
 	public boolean saveOrUpdate(M model) {
 		String id = model.get(idFieldName);
@@ -138,7 +144,7 @@ public class ModelPlus<M extends ModelPlus<M>> extends Model<M> {
 	 * 单个删除
 	 * 
 	 * @param id
-	 * @return
+	 * @return boolean：是否成功
 	 */
 	public boolean delete(String id) {
 		return deleteById(id);
@@ -148,7 +154,7 @@ public class ModelPlus<M extends ModelPlus<M>> extends Model<M> {
 	 * 根据id查询
 	 * 
 	 * @param id
-	 * @return
+	 * @return M
 	 */
 	public M findById(String id) {
 		return findById(id);
@@ -159,7 +165,7 @@ public class ModelPlus<M extends ModelPlus<M>> extends Model<M> {
 	 * 
 	 * @param condition
 	 *            查询条件
-	 * @return
+	 * @return List<M>
 	 */
 	public List<M> findByParam(QueryCondition condition) {
 		return find(condition, null, null);
@@ -172,7 +178,7 @@ public class ModelPlus<M extends ModelPlus<M>> extends Model<M> {
 	 *            查询条件
 	 * @param paging
 	 *            分页条件
-	 * @return
+	 * @return List<M>
 	 */
 	public List<M> findByParam(QueryCondition condition, Paging paging) {
 		return find(condition, paging, null);
@@ -185,7 +191,7 @@ public class ModelPlus<M extends ModelPlus<M>> extends Model<M> {
 	 *            查询条件
 	 * @param sort
 	 *            排序条件
-	 * @return
+	 * @return List<M>
 	 */
 	public List<M> findByParam(QueryCondition condition, Sort sort) {
 		return find(condition, null, sort);
@@ -200,7 +206,7 @@ public class ModelPlus<M extends ModelPlus<M>> extends Model<M> {
 	 *            分页条件
 	 * @param sort
 	 *            排序条件
-	 * @return
+	 * @return List<M>
 	 */
 	public List<M> findByParam(QueryCondition condition, Paging paging,
 			Sort sort) {
@@ -246,7 +252,7 @@ public class ModelPlus<M extends ModelPlus<M>> extends Model<M> {
 	 *            分页条件
 	 * @param sort
 	 *            排序条件
-	 * @return
+	 * @return Page<M>
 	 */
 	public Page<M> findByPage(Paging paging, Sort sort) {
 		int pageNo = 1;
@@ -272,7 +278,7 @@ public class ModelPlus<M extends ModelPlus<M>> extends Model<M> {
 	 * 
 	 * @param paging
 	 *            分页条件
-	 * @return
+	 * @return Page<M>
 	 */
 	public Page<M> findByPage(Paging paging) {
 		return findByPage(paging, null);
@@ -283,7 +289,7 @@ public class ModelPlus<M extends ModelPlus<M>> extends Model<M> {
 	 * 
 	 * @param sort
 	 *            排序条件
-	 * @return
+	 * @return List<M>
 	 */
 	public List<M> findAll(Sort sort) {
 		StringBuilder sb = new StringBuilder();
@@ -295,7 +301,7 @@ public class ModelPlus<M extends ModelPlus<M>> extends Model<M> {
 	/**
 	 * 查询所有（不排序）
 	 * 
-	 * @return
+	 * @return List<M>
 	 */
 	public List<M> findAll() {
 		return findAll(null);
@@ -305,7 +311,7 @@ public class ModelPlus<M extends ModelPlus<M>> extends Model<M> {
 	 * 工具方法：根据Sort生成排序语句
 	 * 
 	 * @param sort
-	 * @return
+	 * @return String：排序语句
 	 */
 	private String getSortSql(Sort sort) {
 		StringBuilder sb = new StringBuilder();
@@ -326,7 +332,7 @@ public class ModelPlus<M extends ModelPlus<M>> extends Model<M> {
 	 * @param condition
 	 * @param paging
 	 * @param sort
-	 * @return
+	 * @return List<M>
 	 */
 	private List<M> find(QueryCondition condition, Paging paging, Sort sort) {
 
@@ -357,7 +363,7 @@ public class ModelPlus<M extends ModelPlus<M>> extends Model<M> {
 	 * 工具方法，判断queryCondtion是否为空
 	 * 
 	 * @param condition
-	 * @return
+	 * @return boolean：true表示为空，false表示不为空
 	 */
 	private boolean isBlankQueryCondition(QueryCondition condition) {
 		if (StrKit.isBlank(condition.getSql())

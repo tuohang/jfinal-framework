@@ -15,13 +15,12 @@ import com.jfinal.plugin.activerecord.Record;
  * @version 1.0
  */
 public class JFinalExtKit {
-	
+
 	/**
 	 * 将Model类转换为Map modelToMap
 	 * 
-	 * @param 参数说明
-	 * @return 返回对象
-	 * @Exception 异常对象
+	 * @param model
+	 * @return Map
 	 */
 	public static Map<String, Object> modelToMap(Model<?> model) {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -35,9 +34,8 @@ public class JFinalExtKit {
 	/**
 	 * 将Record转换成Map recordToMap
 	 * 
-	 * @param 参数说明
-	 * @return 返回对象
-	 * @Exception 异常对象
+	 * @param record
+	 * @return Map
 	 */
 	public static Map<String, Object> recordToMap(Record record) {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -53,8 +51,8 @@ public class JFinalExtKit {
 	/**
 	 * 判断对象或对象数组中每一个对象是否为空: 对象为null，字符序列长度为0，集合类、Map为empty
 	 * 
-	 * @param obj
-	 * @return
+	 * @param obj 要判断的对象
+	 * @return boolean：如果为空，返回true
 	 */
 	@SuppressWarnings("rawtypes")
 	public static boolean isNullOrEmpty(Object obj) {

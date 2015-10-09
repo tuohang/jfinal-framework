@@ -30,6 +30,7 @@
 		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
 		<java.version>1.6</java.version>
 		<maven-source-plugin.version>2.1.2</maven-source-plugin.version>
+		<javadoc.version>2.10.3</javadoc.version>
 	</properties>
 
 	<dependencies>
@@ -103,7 +104,18 @@
 		<pluginManagement>
 			<plugins>
 
-				<!-- 生成java source -->
+				<!-- java编译插件 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+					</configuration>
+				</plugin>
+
+				<!-- java source -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-source-plugin</artifactId>
@@ -119,15 +131,22 @@
 					</executions>
 				</plugin>
 
-				<!-- java编译插件 -->
+				<!-- Javadoc -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>${maven-compiler-plugin.version}</version>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>${javadoc.version}</version>
 					<configuration>
-						<source>${java.version}</source>
-						<target>${java.version}</target>
+						
 					</configuration>
+					<executions>
+						<execution>
+							<phase>package</phase>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
 				</plugin>
 
 			</plugins>
