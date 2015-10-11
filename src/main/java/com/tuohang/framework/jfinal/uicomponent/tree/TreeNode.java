@@ -1,16 +1,16 @@
-package com.tuohang.framework.jfinal.uicomponent.ztree;
+package com.tuohang.framework.jfinal.uicomponent.tree;
 
 import java.io.Serializable;
 import java.util.List;
 
 /**
- * ZTree数据对象
+ * Tree数据对象
  * 
  * @author Lims
  * @date 2015年10月7日
  * @version 1.0
  */
-public class ZTreeNode implements Serializable {
+public class TreeNode implements Serializable {
 
 	private static final long serialVersionUID = -5654387981152673577L;
 
@@ -27,7 +27,7 @@ public class ZTreeNode implements Serializable {
 	private String parentId;
 	private String click;
 	private String iconSkin;
-	private List<ZTreeNode> children;
+	private List<TreeNode> children;
 
 	public String getId() {
 		return id;
@@ -133,11 +133,11 @@ public class ZTreeNode implements Serializable {
 		this.pId = pId;
 	}
 
-	public List<ZTreeNode> getChildren() {
+	public List<TreeNode> getChildren() {
 		return children;
 	}
 
-	public void setChildren(List<ZTreeNode> children) {
+	public void setChildren(List<TreeNode> children) {
 		this.children = children;
 	}
 
